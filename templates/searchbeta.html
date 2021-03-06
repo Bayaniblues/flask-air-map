@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style> td:hover{background-color: gray;}</style>
+    <h2>Search</h2>
+    <div class="card">
+        <div class="card-block">
+
+            <div class="card-text">{{city_in}}</div>
+
+              <table class="table">
+                 <thead>
+                    <th>value</th>
+                    <th>city</th>
+                 </thead>
+                 {% for row in data1 %}
+                    <tr>
+                       <td>{{row['value']}}</td>
+                       <td>{{row['city']}}</td>
+                    </tr>
+                 {% endfor %}
+              </table>
+        </div>
+        </div>
+    </div>
+
+
+{% endblock %}

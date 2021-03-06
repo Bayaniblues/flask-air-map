@@ -2,12 +2,43 @@
 
 {% block content %}
     <h2>Home</h2>
-
     <div class="card">
         <div class="card-block">
 
-            <div class="card-text">testing</div>
+            <div class="card-text">Created a heat map</div>
+
+            <div class="card-text">Created Search</div>
+
+            <div class="card-text">Created an refresh function, that takes 20min+ to scrape</div>
 
         </div>
     </div>
+    <div id="status">
+        <button class="click-me btn btn-success">Refresh data</button>
+    </div>
+    <script>
+        document.addEventListener('click', function (event) {
+
+            // If the clicked element doesn't have the right selector, bail
+            if (!event.target.matches('.click-me')) return;
+
+            // Don't follow the link
+            event.preventDefault();
+
+            // Log the clicked element in the console
+            console.log(event.target);
+            const output =  `<span class="spinner spinner-inline">
+                        Loading...
+                    </span>
+                    <span>
+                        Loading...
+                    </span>`
+            const messages = document.querySelector('#status');
+            messages.insertAdjacentHTML("beforeend", output);
+            return window.location='/refresh'
+            }, false);
+
+
+    </script>
+
 {% endblock %}
